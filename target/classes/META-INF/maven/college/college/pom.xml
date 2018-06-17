@@ -6,6 +6,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>xuxianbei</name>
 	<description>大学</description>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
