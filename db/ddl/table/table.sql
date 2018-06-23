@@ -1,3 +1,11 @@
+#测试表
+CREATE TABLE `sample` (
+  `id` int(11) NOT NULL,
+  `name` varchar(8) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
 CREATE TABLE `course` (
   `c_id` int(11) NOT NULL comment '课程id',
   `name` varchar(10) DEFAULT NULL '课程名称',

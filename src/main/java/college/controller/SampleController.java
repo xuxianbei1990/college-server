@@ -1,15 +1,24 @@
 package college.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import college.po.SamplePo;
+import college.service.SampleService;
 
 @Controller
-@RequestMapping("Sample")
+@RequestMapping("/sample")
 public class SampleController {
 
+	@Autowired
+	SampleService sampleService;
+	
 	@RequestMapping("/test/{id}")
-	public String testSample(@PathVariable("id")Integer id) {
-		return null;
+	@ResponseBody
+	public SamplePo testSample(@PathVariable("id")Integer id) {
+		return sampleService.testSample(id);
 	}
 }
