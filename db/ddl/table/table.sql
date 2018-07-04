@@ -5,6 +5,15 @@ CREATE TABLE `sample` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+#用户表
+drop table if exists `user`;
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL COMMENT '姓名',
+  `password` varchar(20) NOT NULL COMMENT '密码',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户表';
+
 
 CREATE TABLE `course` (
   `c_id` int(11) NOT NULL comment '课程id',

@@ -13,6 +13,14 @@
 	<context:annotation-config />
 	<!-- 配置注解驱动的Spring MVC Controller 的编程模型.注:此标签只在 Servlet MVC工作! -->  
     <mvc:annotation-driven /> 
+    
+    <mvc:interceptors>
+    	<mvc:interceptor>
+    		<mvc:mapping path="/**/"/>
+    		<mvc:exclude-mapping path="/login"/>
+    		<bean class = "college.interceptor.TokenInterceptor"/>
+    	</mvc:interceptor>
+    </mvc:interceptors>
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- 前缀 怎么配置多个路径 -->
