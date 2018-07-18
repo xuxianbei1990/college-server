@@ -27,6 +27,8 @@ public class PersonalInfoController {
 		return new ResultVO();
 	}
 	
+	
+	
 	@RequestMapping(value = "/gettoken", method = RequestMethod.GET)
 	@ResponseBody
 	@Token(save=true)
