@@ -10,6 +10,7 @@ import org.apache.commons.configuration2.PropertiesConfiguration;
 import org.apache.commons.configuration2.builder.FileBasedConfigurationBuilder;
 import org.apache.commons.configuration2.builder.fluent.Configurations;
 import org.apache.commons.configuration2.ex.ConfigurationException;
+import org.apache.commons.lang3.ArrayUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import college.constant.CollegeConstant;
 import college.log.MethodLog;
 
 @Aspect
@@ -29,20 +31,20 @@ public class LogAspectConfig {
 	private final static Logger logger = LoggerFactory.getLogger(LogAspectConfig.class);
 
 	private static PropertiesConfiguration config = null;
-	
+
 	public LogAspectConfig() {
 		Configurations configs = new Configurations();
-        // setDefaultEncoding是个静态方法,用于设置指定类型(class)所有对象的编码方式。
-        // 本例中是PropertiesConfiguration,要在PropertiesConfiguration实例创建之前调用。
-        FileBasedConfigurationBuilder.setDefaultEncoding(PropertiesConfiguration.class, "UTF-8");
-        try {
+		// setDefaultEncoding是个静态方法,用于设置指定类型(class)所有对象的编码方式。
+		// 本例中是PropertiesConfiguration,要在PropertiesConfiguration实例创建之前调用。
+		FileBasedConfigurationBuilder.setDefaultEncoding(PropertiesConfiguration.class, "UTF-8");
+		try {
 			config = configs.properties(this.getClass().getClassLoader().getResource("methodlog.properties"));
 		} catch (ConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Pointcut("@annotation(college.log.MethodLog)")
 	public void logAspect() {
 
@@ -68,6 +70,8 @@ public class LogAspectConfig {
 			// PermissionsPo permissionsPo =
 			// getControllerMethodPermissions(joinPoint);]
 			String[] Logs = getControllerMethodDescription(joinPoint);
+			System.out.println(ArrayUtils.toString(Logs) + CollegeConstant.Delimiter + url + CollegeConstant.Delimiter
+					+ param + CollegeConstant.Delimiter + type + CollegeConstant.Delimiter + ip);
 		} catch (Exception e) {
 			// 记录本地异常日志
 			logger.error("异常信息:{}", e.getMessage());
@@ -78,19 +82,20 @@ public class LogAspectConfig {
 		String targetName = joinPoint.getTarget().getClass().getName();
 		String methodName = joinPoint.getSignature().getName();
 		Object[] arguments = joinPoint.getArgs();
-		Class targetClass = Class.forName(targetName);
+		Class<?> targetClass = Class.forName(targetName);
 		Method[] methods = targetClass.getMethods();
 		String[] logs = new String[2];
 		for (Method method : methods) {
 			if (method.getName().equals(methodName)) {
+				@SuppressWarnings("rawtypes")
 				Class[] clazzs = method.getParameterTypes();
 				if (clazzs.length == arguments.length) {
 					MethodLog log = method.getAnnotation(MethodLog.class);
-					String key = log.key();
+					String key = log.value();
 					// logs[0] = log.description();
 					// logs[1] = log.path();
-					 logs[0] = config.getString(key);
-//					 logs[1] = config.getString(key);
+					logs[0] = config.getString(key);
+					// logs[1] = config.getString(key);
 					break;
 				}
 			}

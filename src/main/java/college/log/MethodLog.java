@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface MethodLog {
-	String key() default "";
+	String value() default "";
 	String description() default "";
 	String path() default "";
 }

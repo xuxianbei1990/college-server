@@ -15,4 +15,6 @@ public class CollegeConstant {
      * 请求返回代码：失败
      */
     public static final String RESPONSECODE_ERR = "9999";
+    
+    public static final String Delimiter = ":";
 }

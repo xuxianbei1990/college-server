@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import college.log.MethodLog;
 import college.po.SamplePo;
 import college.service.SampleService;
 
@@ -20,5 +21,12 @@ public class SampleController {
 	@ResponseBody
 	public SamplePo testSample(@PathVariable("id")Integer id) {
 		return sampleService.testSample(id);
+	}
+	
+	@MethodLog("sample")
+	@RequestMapping("/test/aspect")
+	@ResponseBody
+	public SamplePo testAspect() {
+		return sampleService.testSample(1);
 	}
 }
