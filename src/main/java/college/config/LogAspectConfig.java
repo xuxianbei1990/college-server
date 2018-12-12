@@ -1,11 +1,7 @@
 package college.config;
 
-import java.lang.reflect.Method;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-
-import javax.servlet.http.HttpServletRequest;
-
+import college.annotation.MethodLog;
+import college.constant.CollegeConstant;
 import org.apache.commons.configuration2.PropertiesConfiguration;
 import org.apache.commons.configuration2.builder.FileBasedConfigurationBuilder;
 import org.apache.commons.configuration2.builder.fluent.Configurations;
@@ -21,8 +17,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import college.constant.CollegeConstant;
-import college.log.MethodLog;
+import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.Method;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 @Aspect
 @Component
@@ -45,7 +43,7 @@ public class LogAspectConfig {
 		}
 	}
 
-	@Pointcut("@annotation(college.log.MethodLog)")
+	@Pointcut("@annotation(college.annotation.MethodLog)")
 	public void logAspect() {
 
 	}

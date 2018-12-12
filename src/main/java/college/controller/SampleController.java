@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import college.log.MethodLog;
+import college.annotation.MethodLog;
 import college.po.SamplePo;
 import college.service.SampleService;
 import college.utils.RedisUtil;
