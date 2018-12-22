@@ -22,6 +22,7 @@ import java.util.Properties;
  * Date 2018-11-16
  * VersionV1.0
  * @description https://blog.csdn.net/zxc123e/article/details/77119826
+ *   拦截整个语句
  */
 
 @Intercepts({@Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class})})

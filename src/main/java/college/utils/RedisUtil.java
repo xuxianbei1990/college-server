@@ -148,7 +148,7 @@ public class RedisUtil {
 	 * 
 	 * @param key
 	 *            键
-	 * @param by
+	 * @param delta
 	 *            要增加几(大于0)
 	 * @return
 	 */
@@ -164,7 +164,7 @@ public class RedisUtil {
 	 * 
 	 * @param key
 	 *            键
-	 * @param by
+	 * @param delta
 	 *            要减少几(小于0)
 	 * @return
 	 */

@@ -50,30 +50,30 @@
 	</bean>
 
 	<!-- kafka -->
-	<bean id="producerProperties" class="java.util.HashMap">
-		<constructor-arg>
-			<map>
-				<entry key="bootstrap.servers"
-					value="192.168.2.3:9092,192.168.2.4:9092,192.168.2.5:9092" />
-				<entry key="client.id" value="gpmall-sso"></entry>
-				<entry key="acks" value="-1"></entry>
-				<entry key="key.serializer"
-					value="org.apache.kafka.common.serialization.IntegerSerializer"></entry>
-				<entry key="value.serializer"
-					value="org.apache.kafka.common.serialization.StringSerializer"></entry>
-			</map>
-		</constructor-arg>
-	</bean>
+	<!--<bean id="producerProperties" class="java.util.HashMap">-->
+		<!--<constructor-arg>-->
+			<!--<map>-->
+				<!--<entry key="bootstrap.servers"-->
+					<!--value="192.168.2.3:9092,192.168.2.4:9092,192.168.2.5:9092" />-->
+				<!--<entry key="client.id" value="gpmall-sso"></entry>-->
+				<!--<entry key="acks" value="-1"></entry>-->
+				<!--<entry key="key.serializer"-->
+					<!--value="org.apache.kafka.common.serialization.IntegerSerializer"></entry>-->
+				<!--<entry key="value.serializer"-->
+					<!--value="org.apache.kafka.common.serialization.StringSerializer"></entry>-->
+			<!--</map>-->
+		<!--</constructor-arg>-->
+	<!--</bean>-->
 
-	<bean id="producerFactory"
-		class="org.springframework.kafka.core.DefaultKafkaProducerFactory">
-		<constructor-arg ref="producerProperties">
-		</constructor-arg>
-	</bean>
+	<!--<bean id="producerFactory"-->
+		<!--class="org.springframework.kafka.core.DefaultKafkaProducerFactory">-->
+		<!--<constructor-arg ref="producerProperties">-->
+		<!--</constructor-arg>-->
+	<!--</bean>-->
 
-	<bean id="kafkaTemplate" class="org.springframework.kafka.core.KafkaTemplate">
-		<constructor-arg ref="producerFactory"></constructor-arg>
-		<constructor-arg name="autoFlush" value="true" />
-	</bean>
+	<!--<bean id="kafkaTemplate" class="org.springframework.kafka.core.KafkaTemplate">-->
+		<!--<constructor-arg ref="producerFactory"></constructor-arg>-->
+		<!--<constructor-arg name="autoFlush" value="true" />-->
+<!--</bean>-->
 	<!-- kafkak 结束 -->
 </beans>
