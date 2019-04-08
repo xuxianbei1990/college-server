@@ -12,7 +12,7 @@ import java.security.spec.X509EncodedKeySpec;
 /**
  * Name 非对称加密工具
  *
- * @author xuxb
+ * @author xuxb]
  * Date 2018-12-03
  * VersionV1.0
  * @description 参考网址：https://www.cnblogs.com/frank-quan/p/7073457.html
