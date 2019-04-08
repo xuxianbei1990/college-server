@@ -17,4 +17,4 @@ target/classes/META-INF/maven/college/college/pom.xml
 target/classes/mybatis-config.xml
 target/classes/spring-mvc-servlet.xml
 /target/
-./idea
+.idea
