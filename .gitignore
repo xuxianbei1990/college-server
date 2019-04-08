@@ -18,3 +18,5 @@ target/classes/mybatis-config.xml
 target/classes/spring-mvc-servlet.xml
 /target/
 .idea
+.idea/workspace.xml
+.idea/workspace.xml
