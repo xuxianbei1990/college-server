@@ -1,18 +1,20 @@
 package college.utils;
 
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.util.CollectionUtils;
 
 /**
  * 
  * @author 王赛超 基于spring和redis的redisTemplate工具类 针对所有的hash 都是以h开头的方法 针对所有的Set
  *         都是以s开头的方法 不含通用方法 针对所有的List 都是以l开头的方法
  */
+@Component
 public class RedisUtil {
 	private RedisTemplate<String, Object> redisTemplate;
 
@@ -518,8 +520,8 @@ public class RedisUtil {
 	 *            键
 	 * @param value
 	 *            值
-	 * @param time
-	 *            时间(秒)
+	 * @param
+	 *
 	 * @return
 	 */
 	public boolean lSet(String key, Object value) {
@@ -562,8 +564,8 @@ public class RedisUtil {
 	 *            键
 	 * @param value
 	 *            值
-	 * @param time
-	 *            时间(秒)
+	 * @param
+	 *
 	 * @return
 	 */
 	public boolean lSet(String key, List<Object> value) {

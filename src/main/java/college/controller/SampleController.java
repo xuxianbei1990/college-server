@@ -1,25 +1,24 @@
 package college.controller;
 
+import college.po.SamplePo;
+import college.service.SampleService;
+import college.annotation.MethodLog;
+import college.utils.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import college.annotation.MethodLog;
-import college.po.SamplePo;
-import college.service.SampleService;
-import college.utils.RedisUtil;
-
 @Controller
 @RequestMapping("/sample")
 public class SampleController {
 
 	@Autowired
-	SampleService sampleService;
+    SampleService sampleService;
 	
 	@Autowired
-	RedisUtil redisCacheManager;
+    RedisUtil redisCacheManager;
 	
 	@RequestMapping("/test/{id}")
 	@ResponseBody

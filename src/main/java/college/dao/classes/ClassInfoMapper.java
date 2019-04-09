@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface ClassInfoMapper {
 
-    Classes getClass(@Param("classid")int classid);
+    Classes getClass(@Param("classid") int classid);
 
-    Classes getClassA(@Param("classid")int classid);
+    Classes getClassA(@Param("classid") int classid);
 }

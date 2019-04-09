@@ -7,7 +7,6 @@ import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.plugin.*;
 import org.apache.ibatis.reflection.MetaObject;
-import org.apache.ibatis.reflection.SystemMetaObject;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,7 +21,7 @@ import java.util.Properties;
  * Date 2018-11-16
  * VersionV1.0
  * @description https://blog.csdn.net/zxc123e/article/details/77119826
- *   拦截整个语句
+ * 拦截整个语句
  */
 
 @Intercepts({@Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class})})
@@ -31,8 +30,8 @@ public class MybatisInterceptor implements Interceptor {
     public Object intercept(Invocation invocation) throws Throwable {
         StatementHandler statementHandler = (StatementHandler) invocation.getTarget();
         //通过MetaObject优雅访问对象的属性，这里是访问statementHandler的属性
-        MetaObject metaObject = MetaObject.forObject(statementHandler, SystemMetaObject.DEFAULT_OBJECT_FACTORY,
-                SystemMetaObject.DEFAULT_OBJECT_WRAPPER_FACTORY);
+        MetaObject metaObject = MetaObject.forObject(null, null, null
+                , null);
         //先拦截到RoutingStatementHandler，里面有个StatementHandler类型的delegate变量，其实现类是BaseStatementHandler，然后就到BaseStatementHandler的成员变量mappedStatement
         MappedStatement mappedStatement = (MappedStatement) metaObject.getValue("delegate.mappedStatement");
         // 配置文件中SQL语句的ID

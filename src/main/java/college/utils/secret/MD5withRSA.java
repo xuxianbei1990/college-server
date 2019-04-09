@@ -1,7 +1,10 @@
 package college.utils.secret;
 
 import javax.crypto.Cipher;
-import java.security.*;
+import java.security.MessageDigest;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.Signature;
 
 /**
  * Name  MD5withRSA

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoginController {
 	
 	@Autowired
-	LoginService loginService;
+    LoginService loginService;
 	
 	@RequestMapping("/do")
 	public boolean doLogin(UserPo userPo) {
