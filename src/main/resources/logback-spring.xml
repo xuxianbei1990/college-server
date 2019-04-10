@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<configuration  scan="true" scanPeriod="60 seconds" debug="false">
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
     <!--包含Spring boot对logback日志的默认配置-->
-    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
     <!--定义日志文件存储地址   不要使用相对路径进行配置-->
         <!--控制输出日志的配置-->
-    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
     <!-- 全局变量 -->
     <!--application.yml 传递参数，不能使用logback 自带的<property>标签 -->
     <springProperty scope="context" name="LOG_FILE" source="logback.file"/>
@@ -30,11 +30,19 @@
 
         </rollingPolicy>
     </appender>
+    <logger name="com.kafka.ighack.Consumer" level="info" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <logger name="org.springframework.kafka.listener.KafkaMessageListenerContainer" level="off"/>
+    <logger name="org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer" level="off"/>
+    <logger name="org.apache.kafka" level="OFF"/>
+    <logger name="io.netty" level="OFF"/>
+    <logger name="com.lambdaworks.redis" level="OFF"/>
     <!--日志的默认级别-->
     <root level="DEBUG">
         <!--控制台输出-->
-        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="CONSOLE"/>
         <!--日志文件中输出-->
-        <appender-ref ref="TIME_FILE" />
+        <appender-ref ref="TIME_FILE"/>
     </root>
 </configuration>
