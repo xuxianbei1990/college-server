@@ -1,4 +1,4 @@
-package college.config;
+package college.aspect;
 
 import college.annotation.MethodLog;
 import college.constant.CollegeConstant;
@@ -24,13 +24,13 @@ import java.net.UnknownHostException;
 
 @Aspect
 @Component
-public class LogAspectConfig {
+public class LogAspect {
 
-	private final static Logger logger = LoggerFactory.getLogger(LogAspectConfig.class);
+	private final static Logger logger = LoggerFactory.getLogger(LogAspect.class);
 
 	private static PropertiesConfiguration config = null;
 
-	public LogAspectConfig() {
+	public LogAspect() {
 		Configurations configs = new Configurations();
 		// setDefaultEncoding是个静态方法,用于设置指定类型(class)所有对象的编码方式。
 		// 本例中是PropertiesConfiguration,要在PropertiesConfiguration实例创建之前调用。
