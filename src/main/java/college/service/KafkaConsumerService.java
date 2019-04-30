@@ -24,7 +24,7 @@ public class KafkaConsumerService {
     public void receive(@Payload String message, @Headers MessageHeaders headers,
                         ConsumerRecord<String, String> msg/*, Acknowledgment ack*/) {
         log.info("KafkaMessageCOnsumer 接收到消息:" + message);
-        headers.keySet().forEach(key -> log.info("第一个消费对象{}:{}", key, headers.get(key)));
+        headers.keySet().forEach(key -> log.info("消费对象{}:{}", key, headers.get(key)));
     }
 
 //    @KafkaListener(topics = "test", containerFactory = "getKafkaListenerContainerFactory", groupId = "test")

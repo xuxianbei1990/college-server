@@ -7,5 +7,9 @@
 	<select id="selectUser" parameterType="college.login.UserPo" resultType="college.login.UserPo" >
 		SELECT id, name, password from user where name = #{name} AND password = #{password}
 	</select>
-		
+
+
+	<select id="selectAll" parameterType="college.login.UserPo" resultType="college.login.UserPo" >
+		SELECT id, name, password from user Limit #{count}
+	</select>
 </mapper>

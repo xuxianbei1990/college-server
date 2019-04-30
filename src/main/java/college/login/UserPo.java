@@ -1,33 +1,17 @@
 package college.login;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import lombok.Data;
+
+@Data
 public class UserPo {
-	private int id;
-	
-	private String name;
-	
-	private String password;
 
-	public int getId() {
-		return id;
-	}
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Integer id;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    private String name;
 
-	public String getName() {
-		return name;
-	}
+    private String password;
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
 }
