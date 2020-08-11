@@ -25,6 +25,7 @@ public class KafkaConsumerService {
                         ConsumerRecord<String, String> msg/*, Acknowledgment ack*/) {
         log.info("KafkaMessageCOnsumer 接收到消息:" + message);
         headers.keySet().forEach(key -> log.info("消费对象{}:{}", key, headers.get(key)));
+        throw new RuntimeException("xxb");
     }
 
 //    @KafkaListener(topics = "test", containerFactory = "getKafkaListenerContainerFactory", groupId = "test")

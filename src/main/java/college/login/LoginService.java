@@ -18,7 +18,7 @@ public class LoginService {
 
     public boolean doLoginSleep(UserPo userPo) {
         try {
-            Thread.sleep(100);
+            Thread.sleep(5);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

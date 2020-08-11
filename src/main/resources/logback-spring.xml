@@ -39,7 +39,7 @@
     <logger name="io.netty" level="OFF"/>
     <logger name="com.lambdaworks.redis" level="OFF"/>
     <!--日志的默认级别-->
-    <root level="DEBUG">
+    <root level="INFO">
         <!--控制台输出-->
         <appender-ref ref="CONSOLE"/>
         <!--日志文件中输出-->

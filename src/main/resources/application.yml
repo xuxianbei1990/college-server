@@ -71,6 +71,11 @@ spring:
       bootstrap-servers: 192.168.2.2:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+#        如果是properties 那么 spring.kafka.producer.properties.request.timeout.ms=10
+#        一个请求的相应时间
+        request.timeout.ms: 10
+
     #指定消息被消费之后自动提交偏移量，以便下次继续消费
     consumer:
       enable-auto-commit: true
@@ -83,7 +88,7 @@ spring:
 
 
 mybatis:
-  mapperLocations: classpath:mapper/*.xml
+  mapperLocations: classpath:college.dao/*.xml
   #开启驼峰命名映射
   configuration:
     map-underscore-to-camel-case: true
