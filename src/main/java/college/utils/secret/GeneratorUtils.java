@@ -79,17 +79,17 @@ public class GeneratorUtils {
     }
 
     public static void main(String[] args) throws Exception {
-//        testSymmetric();q
-        KeyPair keyPair = getKeyPair();
-        System.out.println(getPublicKey(keyPair));
-        System.out.println("----------");
-        System.out.println(getPrivateKey(keyPair));
+        testSymmetric();
+//        KeyPair keyPair = getKeyPair();
+//        System.out.println(getPublicKey(keyPair));
+//        System.out.println("----------");
+//        System.out.println(getPrivateKey(keyPair));
     }
 
     //测试对称加密
     private static void testSymmetric() throws NoSuchAlgorithmException {
-        String str = genKey(SymmetricSecretEnums.DES);
+        String str = genKey(SymmetricSecretEnums.AES);
         System.out.println(str);
-        System.out.println(loadKey(str, SymmetricSecretEnums.DES));
+        System.out.println(loadKey(str, SymmetricSecretEnums.AES));
     }
 }

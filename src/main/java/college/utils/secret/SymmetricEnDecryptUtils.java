@@ -47,8 +47,8 @@ public class SymmetricEnDecryptUtils {
 
     public static void main(String[] args) throws Exception {
         System.out.println(
-                CodeUtils.base64Encode(encrypt("dd".getBytes(), GeneratorUtils.loadKey("cEq6yAc4NEo=", SymmetricSecretEnums.DES),
-                        SymmetricSecretEnums.DES))
+                CodeUtils.base64Encode(encrypt("dd".getBytes(), GeneratorUtils.loadKey("p99lnkb1QbXJT3OehUaKqA==", SymmetricSecretEnums.AES),
+                        SymmetricSecretEnums.AES))
         );
     }
 }
